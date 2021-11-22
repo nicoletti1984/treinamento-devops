@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "sa-east-1"
 }
 
 data "http" "myip" {
@@ -7,9 +7,15 @@ data "http" "myip" {
 }
 
 resource "aws_instance" "dev_img_deploy_jenkins" {
-  ami           = "ami-09e67e426f25ce0d7"
-  instance_type = "t2.micro"
-  key_name      = "chave-jenkins"
+  ami                         = "ami-0e66f5495b4efdd0f"
+  subnet_id                   = "subnet-0e3bf872589dc8206"
+  instance_type               = "t2.large"
+  key_name                    = "chave_key-diego"
+  associate_public_ip_address = true
+  root_block_device {
+    encrypted   = true
+    volume_size = 8
+  }
   tags = {
     Name = "dev_img_deploy_jenkins"
   }
@@ -19,6 +25,7 @@ resource "aws_instance" "dev_img_deploy_jenkins" {
 resource "aws_security_group" "acesso_jenkins_dev_img" {
   name        = "acesso_jenkins_dev_img"
   description = "acesso_jenkins_dev_img inbound traffic"
+  vpc_id      = "vpc-0aba9c677ce2a010c"
 
   ingress = [
     {
@@ -70,6 +77,6 @@ output "dev_img_deploy_jenkins" {
     "resource_id: ${aws_instance.dev_img_deploy_jenkins.id}",
     "public_ip: ${aws_instance.dev_img_deploy_jenkins.public_ip}",
     "public_dns: ${aws_instance.dev_img_deploy_jenkins.public_dns}",
-    "ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@${aws_instance.dev_img_deploy_jenkins.public_dns}"
+    "ssh -i '~/id_rsa.pem' ubuntu@${aws_instance.dev_img_deploy_jenkins.public_dns}"
   ]
 }

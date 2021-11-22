@@ -3,6 +3,6 @@ provider "aws" {
 }
 
 module "criar_instancia" {
-  source = "./instancia"
+  source = "git@github.com:nicoletti1984/aulaGitGama2.git"
   nome = "ec2-turma2-diego-module"
 }

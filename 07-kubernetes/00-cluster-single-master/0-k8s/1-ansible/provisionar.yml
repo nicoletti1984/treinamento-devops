@@ -145,6 +145,7 @@
         - none
 
     - name: Disable swap
+      become: yes
       command: swapoff -a
       when: ansible_swaptotal_mb > 0
 
