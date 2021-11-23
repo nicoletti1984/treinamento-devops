@@ -7,7 +7,7 @@ cd 00-projeto/02-pipeline-img/0-build-jenkins-kubernets-ansible/0-terraform
 RESOURCE_ID=$(terraform output | grep resource_id | awk '{print $2;exit}' | sed -e "s/\",//g")
 
 
-cd ../terraform-ami
+cd ../2-terraform-ami
 #/home/ubuntu/terraform init
 #TF_VAR_versao=$VERSAO TF_VAR_resource_id=$RESOURCE_ID /home/ubuntu/terraform apply -auto-approve
 
