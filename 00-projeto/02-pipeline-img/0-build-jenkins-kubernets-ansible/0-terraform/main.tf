@@ -6,7 +6,7 @@ data "http" "myip" {
   url = "http://ipv4.icanhazip.com" # outra opção "https://ifconfig.me"
 }
 
-resource "aws_instance" "jenkins" {
+resource "aws_instance" "projeto" {
   ami                         = "ami-0e66f5495b4efdd0f"
   subnet_id                   = "subnet-0e3bf872589dc8206"
   instance_type               = "t2.large"
@@ -17,14 +17,14 @@ resource "aws_instance" "jenkins" {
     volume_size = 8
   }
   tags = {
-    Name = "jenkins"
+    Name = "projeto"
   }
   vpc_security_group_ids = ["${aws_security_group.jenkins.id}"]
 }
 
-resource "aws_security_group" "jenkins" {
-  name        = "acessos_jenkins"
-  description = "acessos_jenkins inbound traffic"
+resource "aws_security_group" "projeto" {
+  name        = "acessos_projeto"
+  description = "acessos_projeto inbound traffic"
   vpc_id      = "vpc-0aba9c677ce2a010c"
 
   ingress = [
@@ -67,18 +67,18 @@ resource "aws_security_group" "jenkins" {
   ]
 
   tags = {
-    Name = "jenkins-lab"
+    Name = "projeto-lab"
   }
 }
 
 # terraform refresh para mostrar o ssh
-output "jenkins" {
+output "projeto" {
   value = [
-    "jenkins",
-    "id: ${aws_instance.jenkins.id}",
-    "private: ${aws_instance.jenkins.private_ip}",
-    "public: ${aws_instance.jenkins.public_ip}",
-    "public_dns: ${aws_instance.jenkins.public_dns}",
-    "ssh -i '~/id_rsa.pem' ubuntu@${aws_instance.jenkins.public_dns}"
+    "projeto",
+    "id: ${aws_instance.projeto.id}",
+    "private: ${aws_instance.projeto.private_ip}",
+    "public: ${aws_instance.projeto.public_ip}",
+    "public_dns: ${aws_instance.projeto.public_dns}",
+    "ssh -i '~/id_rsa.pem' ubuntu@${aws_instance.jprojeto.public_dns}"
   ]
 }
