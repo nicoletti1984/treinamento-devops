@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd 0-terraform
+cd 00-projeto/02-pipeline-img/0-build-jenkins-kubernets-ansible/0-terraform
 terraform init
 terraform fmt
 terraform apply -auto-approve
@@ -8,7 +8,7 @@ terraform apply -auto-approve
 echo "Aguardando criação de maquinas ..."
 sleep 10 # 10 segundos
 
-echo $"[ec2-jenkins]" > 1-ansible/hosts # cria arquivo
+echo $"[ec2-jenkins]" > ../1-ansible/hosts # cria arquivo
 echo "$(terraform output | grep public_dns | awk '{print $2;exit}')" | sed -e "s/\",//g" >> ../1-ansible/hosts # captura output faz split de espaco e replace de ",
 
 echo "Aguardando criação de maquinas ..."
