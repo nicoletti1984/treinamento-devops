@@ -18,8 +18,8 @@
     - name: "Instala unzip"
       shell: "sudo apt install unzip -y"
 
-     - name: "Instala awscli"
-       shell: "apt install awscli -y"
+    #  - name: "Instala awscli"
+    #    shell: "apt install awscli -y"
       
     - name: "Instala java"
       shell: "apt install default-jdk -y"
@@ -28,8 +28,8 @@
     # - name: "Instala ansible"
     #   shell: "sudo apt install ansible -y"
     
-    # - name: "Instala ansible"
-    #   shell: "sudo apt install ansible -y"
+    - name: "Instala ansible"
+      shell: "sudo apt install ansible -y"
    
     # https://www.jenkins.io/doc/book/installing/linux/
     - name: "Add pacote jenkins"
