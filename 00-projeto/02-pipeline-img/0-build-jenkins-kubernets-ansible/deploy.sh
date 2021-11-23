@@ -32,10 +32,10 @@ echo $"Agora somente abrir a URL: http://$(terraform output | grep public | awk 
 ID_MAQUINA=$(terraform output | grep id | awk '{print $2;exit}')
 echo ${ID_MAQUINA/\",/}
 
-cd ../2-terraform-ami/
+# cd ../2-terraform-ami/
 
-terraform init
-terraform fmt
-terraform apply -var="resource_id=${ID_MAQUINA/\",/}" -auto-approve 
-# terraform apply -var="resource_id=${ID_MAQUINA/\",/} versao=0.0.2" -auto-approve 
-terraform output
+# terraform init
+# terraform fmt
+# terraform apply -var="resource_id=${ID_MAQUINA/\",/}" -auto-approve 
+# # terraform apply -var="resource_id=${ID_MAQUINA/\",/} versao=0.0.2" -auto-approve 
+# terraform output
