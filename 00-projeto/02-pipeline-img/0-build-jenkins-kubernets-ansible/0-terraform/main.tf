@@ -19,11 +19,11 @@ resource "aws_instance" "projeto" {
   tags = {
     Name = "projeto"
   }
-  vpc_security_group_ids = ["${aws_security_group.jenkins.id}"]
+  vpc_security_group_ids = ["${aws_security_group.projeto2.id}"]
 }
 
-resource "aws_security_group" "projeto" {
-  name        = "acessos_projeto"
+resource "aws_security_group" "projeto2" {
+  name        = "acessos_projeto2"
   description = "acessos_projeto inbound traffic"
   vpc_id      = "vpc-0aba9c677ce2a010c"
 
@@ -67,7 +67,7 @@ resource "aws_security_group" "projeto" {
   ]
 
   tags = {
-    Name = "projeto-lab"
+    Name = "projeto-lab2"
   }
 }
 
@@ -79,6 +79,6 @@ output "projeto" {
     "private: ${aws_instance.projeto.private_ip}",
     "public: ${aws_instance.projeto.public_ip}",
     "public_dns: ${aws_instance.projeto.public_dns}",
-    "ssh -i '~/id_rsa.pem' ubuntu@${aws_instance.jprojeto.public_dns}"
+    "ssh -i '~/id_rsa.pem' ubuntu@${aws_instance.projeto.public_dns}"
   ]
 }
