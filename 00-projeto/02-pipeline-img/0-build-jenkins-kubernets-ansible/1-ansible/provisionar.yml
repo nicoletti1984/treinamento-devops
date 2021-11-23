@@ -28,8 +28,8 @@
     # - name: "Instala ansible"
     #   shell: "sudo apt install ansible -y"
     
-    - name: "Instala ansible"
-      shell: "sudo apt install ansible -y"
+    # - name: "Instala ansible"
+    #   shell: "sudo apt install ansible -y"
    
     # https://www.jenkins.io/doc/book/installing/linux/
     - name: "Add pacote jenkins"
