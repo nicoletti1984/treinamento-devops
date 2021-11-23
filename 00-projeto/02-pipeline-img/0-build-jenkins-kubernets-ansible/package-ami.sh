@@ -4,7 +4,7 @@ VERSAO=$(git describe --tags $(git rev-list --tags --max-count=1))
 
 cd 00-projeto/02-pipeline-img/0-build-jenkins-kubernets-ansible/0-terraform
 #RESOURCE_ID=$(/home/ubuntu/terraform output | grep resource_id | awk '{print $2;exit}' | sed -e "s/\",//g")
-RESOURCE_ID=$(terraform output | grep resource_id | awk '{print $2;exit}' | sed -e "s/\",//g")
+RESOURCE_ID=$(terraform output | grep id | awk '{print $2;exit}' | sed -e "s/\",//g")
 
 
 cd ../2-terraform-ami
