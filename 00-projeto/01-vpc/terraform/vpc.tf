@@ -1,6 +1,6 @@
 resource "aws_subnet" "proj-diego-subnet-1a" {
   vpc_id            = "vpc-0aba9c677ce2a010c"
-  cidr_block        = "10.30.0.0/20"
+  cidr_block        = "10.60.64.0/20"
   availability_zone = "sa-east-1a"
 
   tags = {
@@ -10,7 +10,7 @@ resource "aws_subnet" "proj-diego-subnet-1a" {
 
 resource "aws_subnet" "proj-diego-subnet-1b" {
   vpc_id      = "vpc-0aba9c677ce2a010c"
-  cidr_block        = "10.30.16.0/20"
+  cidr_block        = "10.60.80.0/20"
   availability_zone = "sa-east-1b"
 
   tags = {
@@ -20,7 +20,7 @@ resource "aws_subnet" "proj-diego-subnet-1b" {
 
 resource "aws_subnet" "proj-diego-subnet-1c" {
   vpc_id      = "vpc-0aba9c677ce2a010c"
-  cidr_block        = "10.30.32.0/20"
+  cidr_block        = "10.60.96.0/20"
   availability_zone = "sa-east-1c"
 
   tags = {
@@ -30,7 +30,7 @@ resource "aws_subnet" "proj-diego-subnet-1c" {
 
 resource "aws_subnet" "proj-diego-subnet-2a" {
   vpc_id      = "vpc-0aba9c677ce2a010c"
-  cidr_block        = "10.30.48.0/20"
+  cidr_block        = "10.60.112.0/20"
   availability_zone = "sa-east-1a"
 
   tags = {

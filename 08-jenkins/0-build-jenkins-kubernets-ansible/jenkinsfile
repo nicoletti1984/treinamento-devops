@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repo') {
+            steps {
+                git url: 'https://github.com/nicoletti1984/treinamento-devops', branch: 'main'
+            }
+        }
+        stage('Build EC2') {
+            steps {
+                sh "08-jenkins/0-build-jenkins-kubernets-ansible/deploy.sh"
+            }
+        }
+        // stage('Test Nginx') {
+        //     steps {
+        //         sh "08-jenkins/0-build-jenkins-kubernets-ansible/test.sh"
+        //     }
+        // }
+        stage('Build AMI') {
+            steps {
+                sh "08-jenkins/0-build-jenkins-kubernets-ansible/package-ami.sh"
+            }
+        }
+        stage('Destroy Test EC2') {
+            steps {
+                sh "08-jenkins/deploy-infra-img-java-app/destroy.sh"
+            }
+        }
+    }
+}
