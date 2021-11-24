@@ -46,7 +46,7 @@ resource "aws_instance" "k8s_masters" {
 resource "aws_instance" "k8s_workers" {
 #  ami           = "ami-0e66f5495b4efdd0f"
   ami           = "ami-0249de7aaa76e0e04"
-  subnet_id     = "subnet-0e3bf872589dc8206"  
+  subnet_id     = "subnet-092b12a9fa786bdef"  
   instance_type = "t2.medium"
   key_name = "chave_key-diego"
   associate_public_ip_address = true
