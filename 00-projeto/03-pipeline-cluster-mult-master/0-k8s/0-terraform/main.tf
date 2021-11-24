@@ -25,7 +25,7 @@ resource "aws_instance" "k8s_proxy" {
 resource "aws_instance" "k8s_masters" {
 #  ami           = "ami-0e66f5495b4efdd0f"
   ami           = "ami-0249de7aaa76e0e04"
-  subnet_id     = "subnet-0a00cda81bbe15079"  
+  subnet_id     = "subnet-092b12a9fa786bdef"  
   instance_type = "t2.large"
   key_name = "chave_key-diego"
   associate_public_ip_address = true
@@ -46,7 +46,7 @@ resource "aws_instance" "k8s_masters" {
 resource "aws_instance" "k8s_workers" {
 #  ami           = "ami-0e66f5495b4efdd0f"
   ami           = "ami-0249de7aaa76e0e04"
-  subnet_id     = "subnet-092b12a9fa786bdef"  
+  subnet_id     = "subnet-08fb0f3d30afab93d"  
   instance_type = "t2.medium"
   key_name = "chave_key-diego"
   associate_public_ip_address = true
