@@ -23,14 +23,14 @@ ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts provisionar.yml -u ubu
 cd ../0-terraform
 terraform output
 
-echo $"Agora somente abrir a URL: http://$(terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"
+#echo $"Agora somente abrir a URL: http://$(terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"
 
 # open "http://$(terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"" #mac
 # explorer "http://$(terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"" #windows
 # nautilus "http://$(terraform output | grep public | awk '{print $2;exit}'):8080" | sed -e "s/\",//g"" #linux
 
 ID_MAQUINA=$(terraform output | grep id | awk '{print $2;exit}')
-echo ${ID_MAQUINA/\",/}
+#echo ${ID_MAQUINA/\",/}
 
 # cd ../2-terraform-ami/
 

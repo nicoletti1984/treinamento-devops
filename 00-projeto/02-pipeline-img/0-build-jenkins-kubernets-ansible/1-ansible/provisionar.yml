@@ -60,20 +60,20 @@
       when: ansible_swaptotal_mb > 0
 
     - name: Add an apt signing key for Kubernetes
-      become: yes
+      become: true
       apt_key:
         url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
         state: present
 
     - name: Adding apt repository for Kubernetes
-      become: yes
+      become: true
       apt_repository:
         repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
         state: present
         filename: kubernetes.list
 
     - name: Install Kubernetes binaries
-      become: yes
+      become: true
       apt: 
         name: "{{ packages }}"
         state: present
@@ -85,7 +85,7 @@
           - kubectl
 
     - name: Restart kubelet
-      become: yes
+      become: true
       service:
         name: kubelet
         daemon_reload: yes
