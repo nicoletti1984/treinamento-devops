@@ -24,7 +24,7 @@ resource "aws_instance" "k8s_proxy" {
 
 resource "aws_instance" "k8s_masters" {
 #  ami           = "ami-0e66f5495b4efdd0f"
-  ami           = "ami-02b6a6323fc431e1e"
+  ami           = "ami-04c8d39612f50448b"
   subnet_id     = "subnet-0e3bf872589dc8206"  
   instance_type = "t2.large"
   key_name = "chave_key-diego"
@@ -45,7 +45,7 @@ resource "aws_instance" "k8s_masters" {
 
 resource "aws_instance" "k8s_workers" {
 #  ami           = "ami-0e66f5495b4efdd0f"
-  ami           = "ami-02b6a6323fc431e1e"
+  ami           = "ami-04c8d39612f50448b"
   subnet_id     = "subnet-0e3bf872589dc8206"  
   instance_type = "t2.medium"
   key_name = "chave_key-diego"
@@ -97,7 +97,7 @@ resource "aws_security_group" "acessos_masters" {
       prefix_list_ids  = []
       protocol         = "-1"
       security_groups  = [
-        "sg-02d77dc2c2c9a68c3",
+        "sg-0d983a11502271201",
         //"${aws_security_group.acessos_haproxy.id}",
       ]
       self             = false
@@ -162,7 +162,7 @@ resource "aws_security_group" "acessos_haproxy" {
       prefix_list_ids  = []
       protocol         = "-1"
       security_groups  = [
-        "sg-028655a64c6266618",
+        "sg-06810585e1899b19c",
         #aws_security_group.acessos_masters.id,
       ]
       self             = false
@@ -177,7 +177,7 @@ resource "aws_security_group" "acessos_haproxy" {
       protocol         = "-1"
       security_groups  = [
         #aws_security_group.acessos_workers.id,
-        "sg-0495253ba39fd1062",
+        "sg-0bd10095212af13d9",
       ]
       self             = false
       to_port          = 0
